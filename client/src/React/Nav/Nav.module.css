@@ -1,0 +1,35 @@
+.nav{
+    height: 40px;
+    background-color: black;
+    padding: 25px; 
+    border-radius: 20px;
+   
+}
+
+.botones{
+    float:left;
+    margin: 0px 20px 0px 20px;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    font-family: cursive;
+    text-decoration: none;
+}
+
+.botones:hover{
+    color:darkgray
+}
+
+.botonesfiltro{
+    float:right;
+    margin: 0px 20px 0px 20px;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    font-family: cursive;
+    text-decoration: none;
+}
+
+.botonesfiltro:hover{
+    color:darkgray
+}

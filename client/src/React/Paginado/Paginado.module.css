@@ -1,0 +1,10 @@
+.paginado{
+    display: flex;
+}
+
+.numero{
+width: 40px; 
+height: 40px;   
+margin: 10px;
+border-radius: 50%;
+}

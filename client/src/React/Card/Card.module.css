@@ -1,0 +1,34 @@
+.card{
+    background-color: white;
+    display:flex;
+    border: solid black;
+    border-radius: 20px;
+    width: 380px;
+    height: 500px;
+    flex-direction: column;
+    margin: 20px;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    }
+.diets{
+    display: flex;
+    flex-wrap: wrap;
+}    
+
+.diet{
+    border: solid black;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 2px 
+}
+.img{
+    width:350px; 
+    height:250px;
+    border-radius: 20px    
+}
+.card:hover{
+    width: 385px;
+    height: 505px;
+
+}

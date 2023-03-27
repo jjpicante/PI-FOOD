@@ -1,0 +1,16 @@
+.cardsContent{
+    
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.filtros{
+    display: flex;
+    margin-left: 20px;
+}
+.paginado{
+    display: flex;
+    justify-content: center;
+}
+
