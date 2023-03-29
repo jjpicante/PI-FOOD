@@ -1,9 +1,8 @@
 .nav{
     height: 40px;
-    background-color: black;
-    padding: 25px; 
-    border-radius: 20px;
-   
+    background-color:rgba(184, 135, 11, 0.692);
+    backdrop-filter: blur(10px);
+    padding: 25px;    
 }
 
 .botones{

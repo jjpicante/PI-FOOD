@@ -1,4 +1,5 @@
 const regexNum = /^([0-9])*$/;
+const regexUrl = /^https?:\/\/[^\s/$.?#].[^\s]*$/i;
 
 const validate = (inputs) => {
     
@@ -20,15 +21,20 @@ const validate = (inputs) => {
         errors.name ='El nombre no puede superar los 1200 caracteres'
     }
     if(!regexNum.test(inputs.healthScore)){ 
-        errors.healthScore = 'Este valor debe ser un número'
+        errors.healthScore = 'El nivel de comida saludable debe ser un número'
     }
     if(inputs.healthScore > 100 || inputs.healthScore < 1){
         errors.healthScore = 'El valor debe ser entre 1 y 100'
     }
     if(!inputs.healthScore){
-        errors.healthScore = 'Este campo requiere un valor'
+        errors.healthScore = 'El nivel de comida saludable requiere un valor'
     }
-
+    if(!inputs.image){
+        errors.image = 'Introducir link de imágen'
+    }
+    if(!regexUrl.test(inputs.image)){
+        errors.image = 'La imágen debe ser un link'
+    }
     return errors
 }
 

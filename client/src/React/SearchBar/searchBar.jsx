@@ -10,16 +10,17 @@ export default function SearchBar() {
    
     
     const handleChange = (event) => {
-        const newSearch = event.target.value;
-        setSearch(newSearch);
-        dispatch(searchRecipes(newSearch));
-}
-
-return (
+        setSearch(event.target.value)
+    }
+   
+     const handleClick = () => {
+        dispatch(searchRecipes(search))
+    }
+    return (
     <div className={style.buscador}>
-        <input className={style.input} placeholder="Buscar receta..." type='search' onChange={handleChange}/>
-    </div>
-);
+    <input className={style.input} placeholder="Buscar receta..." type='search' onChange={(e)=> handleChange(e)}/>
+    <button className={style.boton} onClick={() => handleClick()}>Buscar</button> 
+   </div>) 
 }
 
 

@@ -20,7 +20,7 @@ const getInfoDb = async () => {
                 summary: result.summary,
                 healthScore: result.healthScore,
                 steps: result.steps,
-                Diets: result.Diets.map(elem => elem.name),                                   
+                diets: result.Diets.map(elem => elem.name),                                   
                 createdInDb: result.createdInDb
             }
         })
@@ -48,7 +48,7 @@ const searchByIdDb = async (id) => {
         healthScore: recipesBd.healthScore,
         steps: recipesBd.steps,
         image: recipesBd.image,
-        Diets: recipesBd.Diets.map(elem => elem.name)
+        diets: recipesBd.Diets.map(elem => elem.name)
     }
 
 }

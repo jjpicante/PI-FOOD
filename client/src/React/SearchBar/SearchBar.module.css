@@ -1,9 +1,9 @@
 .buscador{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content:flex-end;
-    float:none;
+    
     
 }
 
@@ -11,19 +11,19 @@
 width: 400px;
 height: 40px;
 margin-bottom: 10px;
-float:right
+float:right;
+border-radius: 5px;
 }
 
 .boton{
-display: none;
-/* border-radius: 20px;
+    margin-left:20px;
+    border-radius: 20px;
 width: 80px;
 font-weight: bolder;
 font-family: cursive;
 cursor: pointer;
-float: right; */
+float: right; 
 }
-
-/* .boton:hover{
+.boton:hover{
     color: grey;
-} */
+} 

@@ -13,9 +13,6 @@ return (
     <NavLink to="/form" className={style.botones}>
       <span>Creá tu receta</span>
     </NavLink>
-    <NavLink to="/about" className={style.botones}>
-      <span>About</span>
-    </NavLink>
     <SearchBar />
   </div>
 );

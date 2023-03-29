@@ -49,7 +49,7 @@ router.get("/recipes", async (req, res) => {
                 return res.status(200).json(recipeFind)
             }
             else {
-                return res.status(400).send('No se encontraron recetas')
+                return res.status(400).send(`No se encontraron recetas que contengan "${name}"`)
             }
         }
     

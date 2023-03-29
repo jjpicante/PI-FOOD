@@ -20,7 +20,7 @@ const getApiInfo = async () => {
                     .map(elem => elem.step)
                     .join(" \n")
                 : "Esta receta no tiene paso a paso",
-                Diets: result.diets    
+                diets: result.diets    
                     }
                 
             })
@@ -49,7 +49,7 @@ const searchByIdApi = async (id) => {
                 .map(elem => elem.number +"- "+ elem.step)
             : ["Esta receta no tiene paso a paso"],
             image: response.data.image,
-            Diets: response.data.diets
+            diets: response.data.diets
             
         };
         return result;

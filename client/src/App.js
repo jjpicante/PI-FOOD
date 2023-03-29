@@ -1,4 +1,4 @@
-import './App.css';
+import style from './App.module.css';
 import {Routes,Route} from "react-router-dom"
 import Landing from './React/Landing/landing'
 import Detail from './React/Detail/detail'
@@ -13,7 +13,7 @@ function App() {
   const location = useLocation()
   
   return (
-    <div>
+    <div className={style.body}>
       {location.pathname !== "/" && <Nav/>}
       <Routes>
         <Route path="/" element={<Landing/>}/>
