@@ -66,7 +66,6 @@ export default function reducer(state = initialState, { type, payload }) {
         recipes: recipesFiltered
       }
     case FILTER_RECIPE_BY_ORIGIN:
-      console.log("reducer", payload)
       const recipesByOrigin = payload === 'Creadas' ? allRecipes.filter(recipe => recipe.createdInDb) : allRecipes.filter(recipe => !recipe.createdInDb);
       if(recipesByOrigin.length){
       return {
@@ -110,10 +109,10 @@ export default function reducer(state = initialState, { type, payload }) {
       let sortByHs;
       if (payload === 'asc') {
         sortByHs = state.recipes.sort((a, b) => {
-          if (a.healthScore < b.healthScore) {
+          if (a.healthScore > b.healthScore) {
             return 1;
           }
-          if (a.healthScore > b.healthScore) {
+          if (a.healthScore < b.healthScore) {
             return -1;
           }
           return 0;

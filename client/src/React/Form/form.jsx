@@ -28,6 +28,8 @@ export default function Form() {
     Diets: [],
   });
 
+
+  console.log(input);
   const handleChange = (e) => {
     setInput({
       ...input,
@@ -165,16 +167,16 @@ export default function Form() {
             <br />
 
             <select onChange={(e) => handleSelect(e)}>
-              {diets?.map((elem) => {
+              {diets?.map((elem, index) => {
                 return (
-                  <option key={elem.name} value={elem.name}>
+                  <option key={index} value={elem.name}>
                     {elem.name}
                   </option>
                 );
               })}
             </select>
 
-            <button type="button" onClick={() => handleResetdiets()}>
+            <button className={style.button} type="button" onClick={() => handleResetdiets()}>
               reset dietas
             </button>
 

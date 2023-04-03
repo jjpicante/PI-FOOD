@@ -35,8 +35,8 @@ const getApiInfo = async () => {
 const searchByIdApi = async (id) => {
    
     try {
-        //const response = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=79e6ea57a4014ee8b14838fc4103dde1`);
-        const response = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=d400df556f96425fa0f8954e5685574f `);
+        const response = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=79e6ea57a4014ee8b14838fc4103dde1`);
+        //const response = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=d400df556f96425fa0f8954e5685574f `);
         
         const result = {
             id: response.data.id,

@@ -34,22 +34,28 @@ const getInfoDb = async () => {
 }
 
 const searchByIdDb = async (id) => {
-    const recipesBd = await Recipe.findByPk(id,{include: {
-        model: Diets,
-        attributes: ['name'],
-        through: {
-            attributes: [],
-        }
-    }})
-    return {
-        id: recipesBd.id,
-        name: recipesBd.name,
-        summary: recipesBd.summary,
-        healthScore: recipesBd.healthScore,
-        steps: recipesBd.steps,
-        image: recipesBd.image,
-        diets: recipesBd.Diets.map(elem => elem.name)
-    }
+   try {
+       const recipesBd = await Recipe.findByPk(id,{include: {
+           model: Diets,
+           attributes: ['name'],
+           through: {
+               attributes: [],
+           }
+       }})
+       return {
+           id: recipesBd.id,
+           name: recipesBd.name,
+           summary: recipesBd.summary,
+           healthScore: recipesBd.healthScore,
+           steps: recipesBd.steps,
+           image: recipesBd.image,
+           diets: recipesBd.Diets.map(elem => elem.name)
+       }
+    } catch (error) {
+        console.log({error: error.message})
+    
+   }
+   
 
 }
 module.exports = { getInfoDb, searchByIdDb };

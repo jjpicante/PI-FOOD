@@ -38,13 +38,26 @@ justify-content: center;
 }
 
 .submit{
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    border: solid black 6px;
+    border-radius: 50%;
+    color: white;
     position: absolute;
-    top: 650px;
-    left: 150px;
-    height: 30px;
-    width: 120px;
+    top: 500px;
+    left: 350px;
+    height: 125px;
+    width: 125px;
     font-weight: bolder;
+    font-size: medium;
+    font-family:cursive;
+    cursor: pointer
 }
+.submit:hover{
+  background-color: darkolivegreen;
+  
+}
+
 .errores{
     background-color: transparent;
     backdrop-filter: blur(5px);
