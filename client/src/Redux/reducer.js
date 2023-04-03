@@ -9,15 +9,14 @@ import {
   FILTER_RECIPE_BY_ORIGIN,
   SORT_BY_NAME,
   SORT_BY_HS,
-  RESET,
+  
 } from "./actionsTypes"
-import { originalOrder } from "./ordenOriginal"
+
 
 
 const initialState = {
   recipes: [],
   originalRecipes: [],
-  originalOrder,
   noResultsFound:[],
   recipeByID: {},
   diets: [],
@@ -26,7 +25,7 @@ const initialState = {
 
 export default function reducer(state = initialState, { type, payload }) {
   const allRecipes = state.originalRecipes
-  const helper = [{ undefined }]
+  
   switch (type) {
     case GET_RECIPES:
       return {
@@ -66,7 +65,7 @@ export default function reducer(state = initialState, { type, payload }) {
         recipes: recipesFiltered
       }
     case FILTER_RECIPE_BY_ORIGIN:
-      const recipesByOrigin = payload === 'Creadas' ? allRecipes.filter(recipe => recipe.createdInDb) : allRecipes.filter(recipe => !recipe.createdInDb);
+      const recipesByOrigin = payload === 'Creadas' ? allRecipes.filter(recipe => typeof recipe.id === "string"  ) : allRecipes.filter(recipe => typeof recipe.id === "number");
       if(recipesByOrigin.length){
       return {
         ...state,
@@ -77,6 +76,8 @@ export default function reducer(state = initialState, { type, payload }) {
           noResultsFound: ["NO SE ECONTRARON RECETAS CREADAS :("]
       }}
     case SORT_BY_NAME:
+      console.log("payload", payload);
+
       let sortByName;
       if (payload === 'az') {
         sortByName = state.recipes.sort((a, b) => {
@@ -99,11 +100,12 @@ export default function reducer(state = initialState, { type, payload }) {
           return 0;
         });
       } if (payload === "-") {
-        sortByName = state.originalOrder
+        sortByName = state.originalRecipes
       }
+      console.log(state.originalRecipes);
       return {
         ...state,
-        recipes: sortByName.concat(helper)
+        recipes: sortByName
       }
     case SORT_BY_HS:
       let sortByHs;
@@ -128,19 +130,14 @@ export default function reducer(state = initialState, { type, payload }) {
           return 0;
         });
       } if (payload === "-") {
-        sortByHs = state.originalOrder
+        sortByHs = state.originalRecipes
       }
 
       return {
         ...state,
-        recipes: sortByHs.concat(helper)
+        recipes: sortByHs
       }
-    case RESET:
-      return {
-        ...state,
-        recipes: originalOrder
-      }
-
+   
     default:
       return { ...state, }
   }

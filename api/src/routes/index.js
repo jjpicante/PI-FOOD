@@ -7,20 +7,17 @@ const router = Router();
 //////////////////////////////////CREAR RECETA////////////////////////////////////////////////////////////
 
 router.post("/recipes", async (req, res) => {
-   try{
-    let { name, image, summary, healthScore, steps, Diets } = req.body;
-       
-        let crearRecipe = await createRecipe(name, image, summary, healthScore, steps, Diets)
-        if(crearRecipe.length === 0){throw Error}
-
-        return res.status(200).send(crearRecipe)
-
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
-    }
-});
-
-
+    try{
+     let { name, image, summary, healthScore, steps, Diets } = req.body;
+        
+         let crearRecipe = await createRecipe(name, image, summary, healthScore, steps, Diets)
+ 
+         return res.status(200).send(crearRecipe)
+ 
+     } catch (error) {
+         return res.status(400).json({ error: error.message });
+     }
+ });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

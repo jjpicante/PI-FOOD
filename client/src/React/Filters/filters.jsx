@@ -7,24 +7,30 @@ import {
   sortByHs,
 } from "../../Redux/actions";
 
-export default function Filters() {
+export default function Filters({setCurrentPage , setOrden}) {
   const dietas = useSelector((state) => state.diets);
   const dispatch = useDispatch();
 
   const handleFilterDiet = (e) => {
     dispatch(filterRecipeByDiets(e.target.value));
+    setCurrentPage(1)
   };
 
   const handleFilterOrigin = (e) => {
     dispatch(filterRecipeByOrigin(e.target.value));
+    setCurrentPage(1)
   };
 
   const handleFilterByName = (e) => {
     dispatch(sortByName(e.target.value));
+    setCurrentPage(1)
+    setOrden(`Ordenado${e.target.value}`)
   };
 
   const handleFilterByHs = (e) => {
     dispatch(sortByHs(e.target.value));
+    setCurrentPage(1)
+    setOrden(`Ordenado${e.target.value}`)
   };
 
   return (

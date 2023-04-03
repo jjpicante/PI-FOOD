@@ -18,3 +18,8 @@ font-size: large;
 .numero:hover{
 background-color: darkolivegreen;
 }
+
+.active {
+    background-color: darkred;
+    color: white;
+}
