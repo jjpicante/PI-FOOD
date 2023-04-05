@@ -9,7 +9,7 @@ import {
   FILTER_RECIPE_BY_ORIGIN,
   SORT_BY_NAME,
   SORT_BY_HS,
-  
+
 } from "./actionsTypes"
 
 
@@ -17,7 +17,7 @@ import {
 const initialState = {
   recipes: [],
   originalRecipes: [],
-  noResultsFound:[],
+  noResultsFound: [],
   recipeByID: {},
   diets: [],
 }
@@ -25,7 +25,6 @@ const initialState = {
 
 export default function reducer(state = initialState, { type, payload }) {
   const allRecipes = state.originalRecipes
-  
   switch (type) {
     case GET_RECIPES:
       return {
@@ -65,19 +64,19 @@ export default function reducer(state = initialState, { type, payload }) {
         recipes: recipesFiltered
       }
     case FILTER_RECIPE_BY_ORIGIN:
-      const recipesByOrigin = payload === 'Creadas' ? allRecipes.filter(recipe => typeof recipe.id === "string"  ) : allRecipes.filter(recipe => typeof recipe.id === "number");
-      if(recipesByOrigin.length){
-      return {
-        ...state,
-        recipes: payload === 'Todas' ? allRecipes : recipesByOrigin
-      }}else{
+      const recipesByOrigin = payload === 'Creadas' ? allRecipes.filter(recipe => typeof recipe.id === "string") : allRecipes.filter(recipe => typeof recipe.id === "number");
+      if (recipesByOrigin.length) {
+        return {
+          ...state,
+          recipes: payload === 'Todas' ? allRecipes : recipesByOrigin
+        }
+      } else {
         return {
           ...state,
           noResultsFound: ["NO SE ECONTRARON RECETAS CREADAS :("]
-      }}
+        }
+      }
     case SORT_BY_NAME:
-      console.log("payload", payload);
-
       let sortByName;
       if (payload === 'az') {
         sortByName = state.recipes.sort((a, b) => {
@@ -102,7 +101,6 @@ export default function reducer(state = initialState, { type, payload }) {
       } if (payload === "-") {
         sortByName = state.originalRecipes
       }
-      console.log(state.originalRecipes);
       return {
         ...state,
         recipes: sortByName
@@ -137,7 +135,6 @@ export default function reducer(state = initialState, { type, payload }) {
         ...state,
         recipes: sortByHs
       }
-   
     default:
       return { ...state, }
   }

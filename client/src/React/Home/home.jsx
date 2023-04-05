@@ -11,8 +11,6 @@ export default function Home() {
   const recetas = useSelector((state) => state.recipes);
   const noResultsFound = useSelector((state) => state.noResultsFound);
 
-
-  
   if (typeof recetas === "string") {
     alert(recetas);
     window.location.reload();
@@ -20,13 +18,11 @@ export default function Home() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [activePage, setActivePage] = useState(1);
-  const [orden, setOrden] = useState('')
+  const [orden, setOrden] = useState("");
   const recipesPerPage = 9;
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
   const currentRecipes = recetas.slice(indexOfFirstRecipe, indexOfLastRecipe);
-
-console.log(orden);
 
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -52,8 +48,7 @@ console.log(orden);
 
   return (
     <div className={style.bodyHome}>
-      <Filters setCurrentPage={setCurrentPage}
-      setOrden={setOrden} />
+      <Filters setCurrentPage={setCurrentPage} setOrden={setOrden} />
       <div className={style.cardsContent}>
         {currentRecipes?.map((elem) => {
           if (elem.id === undefined) {

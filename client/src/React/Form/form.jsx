@@ -28,8 +28,6 @@ export default function Form() {
     Diets: [],
   });
 
-
-  console.log(input);
   const handleChange = (e) => {
     setInput({
       ...input,
